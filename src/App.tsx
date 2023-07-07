@@ -10,7 +10,13 @@ function App() {
   function isNumber(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.value.startsWith('2')) { e.target.value = ''; } // bug
   }
+  let count = 0;
+  function cargoAlert(e: any) {
+    count += 1;
+    console.log(count);
 
+    if (count === 1) alert('Preencha com cuidado esta informação.');
+  }
   return (
     <form>
       <fieldset>
@@ -61,6 +67,20 @@ function App() {
           Apartamento
           {/* bug */}
           <input type="radio" name="place" checked />
+        </label>
+      </fieldset>
+      <fieldset>
+        <label>
+          Resumo do currículo
+          <input maxLength={ 1000 } type="text" />
+        </label>
+        <label>
+          Cargo
+          <input maxLength={ 40 } type="text" onMouseEnter={ (e) => cargoAlert(e) } />
+        </label>
+        <label>
+          Descrição do cargo
+          <input maxLength={ 500 } type="text" />
         </label>
       </fieldset>
     </form>
