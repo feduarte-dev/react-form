@@ -61,12 +61,12 @@ function App() {
         </label>
         <label>
           Casa
-          <input type="radio" name="place" checked />
+          <input type="radio" name="place" defaultChecked />
         </label>
         <label>
           Apartamento
           {/* bug */}
-          <input type="radio" name="place" checked />
+          <input type="radio" name="place" />
         </label>
       </fieldset>
       <fieldset>
