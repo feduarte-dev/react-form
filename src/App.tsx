@@ -8,7 +8,7 @@ function App() {
     e.target.value = (`${e.target.value}`).replace(/[^\w\s]/gi, '');
   }
   function isNumber(e: React.ChangeEvent<HTMLInputElement>) {
-    if (e.target.value.startsWith('2')) { e.target.value = ''; }
+    if (e.target.value.startsWith('2')) { e.target.value = ''; } // bug
   }
 
   return (
@@ -59,6 +59,7 @@ function App() {
         </label>
         <label>
           Apartamento
+          {/* bug */}
           <input type="radio" name="place" checked />
         </label>
       </fieldset>
