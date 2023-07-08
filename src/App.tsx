@@ -39,7 +39,7 @@ function App() {
       </fieldset>
       <fieldset>
         <label>
-          Endereço
+          Endereco
           <input maxLength={ 200 } type="text" onChange={ specialChar } />
         </label>
         <label>
