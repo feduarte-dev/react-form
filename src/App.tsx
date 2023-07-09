@@ -84,8 +84,8 @@ function App() {
         <label>
           Nome
           <input
-            type='text'
-            name='fullName'
+            type="text"
+            name="fullName"
             maxLength={ 40 }
             onInput={ upperCase }
             onChange={ handleName }
@@ -95,8 +95,8 @@ function App() {
         <label>
           Email
           <input
-            type='email'
-            name='email'
+            type="email"
+            name="email"
             maxLength={ 50 }
             onChange={ handleEmail }
             value={ email }
@@ -105,8 +105,8 @@ function App() {
         <label>
           CPF
           <input
-            type='text'
-            name='CPF'
+            type="text"
+            name="CPF"
             maxLength={ 11 }
             onChange={ handleCpf }
             value={ cpf }
@@ -117,8 +117,8 @@ function App() {
         <label>
           Endereço
           <input
-            type='text'
-            name='address'
+            type="text"
+            name="address"
             maxLength={ 200 }
             onChange={ specialChar }
             value={ address }
@@ -127,8 +127,8 @@ function App() {
         <label>
           Cidade
           <input
-            type='text'
-            name='city'
+            type="text"
+            name="city"
             maxLength={ 28 }
             onBlur={ isNumber }
             onChange={ handleCity }
@@ -138,7 +138,7 @@ function App() {
         <label>
           Estado
           <select
-            name='state'
+            name="state"
             onChange={ (event) => handleState(event) }
             value={ state }
           >
@@ -153,21 +153,21 @@ function App() {
         <label>
           Casa
           <input
-            type='radio'
-            name='addressType'
-            checked={ addressType === 'Casa' }
+            type="radio"
+            name="addressType"
+            checked={ addressType === "Casa" }
             onClick={ ChangeAddress }
-            value='Casa'
+            value="Casa"
           />
         </label>
         <label>
           Apartamento
           <input
-            type='radio'
-            name='addressType'
-            checked={ addressType === 'Apartamento' }
+            type="radio"
+            name="addressType"
+            checked={ addressType === "Apartamento" }
             onClick={ ChangeAddress }
-            value='Apartamento'
+            value="Apartamento"
           />
         </label>
       </fieldset>
@@ -175,8 +175,8 @@ function App() {
         <label>
           Resumo do currículo
           <input
-            type='text'
-            name='cv'
+            type="text"
+            name="cv"
             maxLength={ 1000 }
             onChange={ handleCv }
             value={ cv }
@@ -185,8 +185,8 @@ function App() {
         <label>
           Cargo
           <input
-            type='text'
-            name='role'
+            type="text"
+            name="role"
             maxLength={ 40 }
             onChange={ handleRole }
             onMouseEnter={ cargoAlert }
@@ -196,15 +196,15 @@ function App() {
         <label>
           Descrição do cargo
           <input
-            type='text'
-            name='description'
+            type="text"
+            name="description"
             maxLength={ 500 }
             onChange={ handleDescriptionChange }
             value={ description }
           />
         </label>
       </fieldset>
-      <button type='submit' onClick={ handleInfo }>
+      <button type="submit" onClick={ handleInfo }>
         Enviar
       </button>
       {info && (
