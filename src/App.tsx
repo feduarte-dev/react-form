@@ -33,7 +33,7 @@ function App() {
   }
 
   function cargoAlert() {
-    if (!AlertMessage) global.alert('Preencha com cuidado esta informação.');
+    if (!AlertMessage) alert('Preencha com cuidado esta informação.');
     setAlertMessage(true);
   }
 
@@ -61,7 +61,7 @@ function App() {
     setAddressType(e.target.value);
   }
 
-  function handleCv(e: React.ChangeEvent<HTMLTextAreaElement>) {
+  function handleCv(e: React.ChangeEvent<HTMLInputElement>) {
     setCv(e.target.value);
   }
 
@@ -75,7 +75,7 @@ function App() {
   }
 
   function handleDescriptionChange(e
-  : React.ChangeEvent<HTMLTextAreaElement>) {
+  : React.ChangeEvent<HTMLInputElement>) {
     setDescription(e.target.value);
   }
 
@@ -189,7 +189,7 @@ function App() {
       <fieldset>
         <label>
           Resumo do currículo
-          <textarea
+          <input
             name="cv"
             maxLength={ 1000 }
             onChange={ handleCv }
@@ -209,7 +209,7 @@ function App() {
         </label>
         <label>
           Descrição do cargo
-          <textarea
+          <input
             name="description"
             maxLength={ 500 }
             onChange={ handleDescriptionChange }
