@@ -155,7 +155,7 @@ function App() {
           <input
             type="radio"
             name="addressType"
-            checked={ addressType === "Casa" }
+            checked={ addressType === 'Casa' }
             onClick={ ChangeAddress }
             value="Casa"
           />
@@ -165,7 +165,7 @@ function App() {
           <input
             type="radio"
             name="addressType"
-            checked={ addressType === "Apartamento" }
+            checked={ addressType === 'Apartamento' }
             onClick={ ChangeAddress }
             value="Apartamento"
           />
