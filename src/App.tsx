@@ -33,7 +33,7 @@ function App() {
   }
 
   function cargoAlert() {
-    if (!AlertMessage) alert('Preencha com cuidado esta informação.');
+    if (!AlertMessage) global.alert('Preencha com cuidado esta informação.');
     setAlertMessage(true);
   }
 
