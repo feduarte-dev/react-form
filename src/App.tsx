@@ -167,11 +167,11 @@ function App() {
         <label>
           Casa
           <input
-            checked={ addressType === 'Casa' }
+            defaultChecked={ addressType === 'Casa' }
             name="addressType"
             type="radio"
             value="Casa"
-            onClick={ ChangeAddress }
+            onChange={ ChangeAddress }
           />
         </label>
         <label>
@@ -181,7 +181,7 @@ function App() {
             name="addressType"
             type="radio"
             value="Apartamento"
-            onClick={ ChangeAddress }
+            onChange={ ChangeAddress }
           />
         </label>
       </fieldset>
