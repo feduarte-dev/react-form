@@ -79,7 +79,8 @@ function App() {
     setDescription(e.target.value);
   }
 
-  const clear = () => {
+  const clear = (e:any) => {
+    e.preventDefault();
     setName('');
     setEmail('');
     setCpf('');
@@ -217,7 +218,7 @@ function App() {
         </label>
       </fieldset>
       <button type="submit" onClick={ handleInfo }>Enviar</button>
-      <button onClick={ clear }>Limpar</button>
+      <button onClick={ (e) => clear(e) }>Limpar</button>
       {info && (
         <div>
           <p>{name}</p>
