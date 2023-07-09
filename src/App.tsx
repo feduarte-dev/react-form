@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import states from "./countryStates";
+import states from './countryStates';
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [cpf, setCpf] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [cpf, setCpf] = useState('');
 
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("Acre");
-  const [addressType, setAddressType] = useState("Casa");
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('Acre');
+  const [addressType, setAddressType] = useState('Casa');
 
-  const [cv, setCv] = useState("");
-  const [role, setRole] = useState("");
-  const [description, setDescription] = useState("");
+  const [cv, setCv] = useState('');
+  const [role, setRole] = useState('');
+  const [description, setDescription] = useState('');
 
   const [AlertMessage, setAlertMessage] = useState(false);
 
@@ -25,15 +25,15 @@ function App() {
   }
 
   function specialChar(e: React.ChangeEvent<HTMLInputElement>) {
-    setAddress((e.target.value = `${e.target.value}`.replace(/[^\w\s]/gi, "")));
+    setAddress((e.target.value = `${e.target.value}`.replace(/[^\w\s]/gi, '')));
   }
 
   function isNumber() {
-    if (/\d/g.test(city)) setCity("");
+    if (/\d/g.test(city)) setCity('');
   }
 
   function cargoAlert() {
-    if (!AlertMessage) alert("Preencha com cuidado esta informação.");
+    if (!AlertMessage) alert('Preencha com cuidado esta informação.');
     setAlertMessage(true);
   }
 
@@ -84,32 +84,32 @@ function App() {
         <label>
           Nome
           <input
-            type="text"
-            name="fullName"
-            maxLength={40}
-            onInput={upperCase}
-            onChange={handleName}
-            value={name}
+            type='text'
+            name='fullName'
+            maxLength={ 40 }
+            onInput={ upperCase }
+            onChange={ handleName }
+            value={ name }
           />
         </label>
         <label>
           Email
           <input
-            type="email"
-            name="email"
-            maxLength={50}
-            onChange={handleEmail}
-            value={email}
+            type='email'
+            name='email'
+            maxLength={ 50 }
+            onChange={ handleEmail }
+            value={ email }
           />
         </label>
         <label>
           CPF
           <input
-            type="text"
-            name="CPF"
-            maxLength={11}
-            onChange={handleCpf}
-            value={cpf}
+            type='text'
+            name='CPF'
+            maxLength={ 11 }
+            onChange={ handleCpf }
+            value={ cpf }
           />
         </label>
       </fieldset>
@@ -117,33 +117,33 @@ function App() {
         <label>
           Endereço
           <input
-            type="text"
-            name="address"
-            maxLength={200}
-            onChange={specialChar}
-            value={address}
+            type='text'
+            name='address'
+            maxLength={ 200 }
+            onChange={ specialChar }
+            value={ address }
           />
         </label>
         <label>
           Cidade
           <input
-            type="text"
-            name="city"
-            maxLength={28}
-            onBlur={isNumber}
-            onChange={handleCity}
-            value={city}
+            type='text'
+            name='city'
+            maxLength={ 28 }
+            onBlur={ isNumber }
+            onChange={ handleCity }
+            value={ city }
           />
         </label>
         <label>
           Estado
           <select
-            name="state"
-            onChange={(event) => handleState(event)}
-            value={state}
+            name='state'
+            onChange={ (event) => handleState(event) }
+            value={ state }
           >
             {states.map((estado) => (
-              <option key={estado} value={estado}>
+              <option key={ estado } value={ estado }>
                 {estado}
               </option>
             ))}
@@ -153,22 +153,21 @@ function App() {
         <label>
           Casa
           <input
-            type="radio"
-            name="addressType"
-            checked={addressType === "Casa"}
-            onClick={ChangeAddress}
-            value="Casa"
+            type='radio'
+            name='addressType'
+            checked={ addressType === 'Casa' }
+            onClick={ ChangeAddress }
+            value='Casa'
           />
         </label>
-
         <label>
           Apartamento
           <input
-            type="radio"
-            name="addressType"
-            checked={addressType === "Apartamento"}
-            onClick={ChangeAddress}
-            value="Apartamento"
+            type='radio'
+            name='addressType'
+            checked={ addressType === 'Apartamento' }
+            onClick={ ChangeAddress }
+            value='Apartamento'
           />
         </label>
       </fieldset>
@@ -176,36 +175,36 @@ function App() {
         <label>
           Resumo do currículo
           <input
-            type="text"
-            name="cv"
-            maxLength={1000}
-            onChange={handleCv}
-            value={cv}
+            type='text'
+            name='cv'
+            maxLength={ 1000 }
+            onChange={ handleCv }
+            value={ cv }
           />
         </label>
         <label>
           Cargo
           <input
-            type="text"
-            name="role"
-            maxLength={40}
-            onChange={handleRole}
-            onMouseEnter={cargoAlert}
-            value={role}
+            type='text'
+            name='role'
+            maxLength={ 40 }
+            onChange={ handleRole }
+            onMouseEnter={ cargoAlert }
+            value={ role }
           />
         </label>
         <label>
           Descrição do cargo
           <input
-            type="text"
-            name="description"
-            maxLength={500}
-            onChange={handleDescriptionChange}
-            value={description}
+            type='text'
+            name='description'
+            maxLength={ 500 }
+            onChange={ handleDescriptionChange }
+            value={ description }
           />
         </label>
       </fieldset>
-      <button type="submit" onClick={handleInfo}>
+      <button type='submit' onClick={ handleInfo }>
         Enviar
       </button>
       {info && (
