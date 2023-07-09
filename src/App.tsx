@@ -21,11 +21,11 @@ function App() {
   const [info, setInfo] = useState(false);
 
   function upperCase(e: React.ChangeEvent<HTMLInputElement>) {
-    e.target.value = `${e.target.value}`.toUpperCase();
+    e.target.value = (`${e.target.value}`).toUpperCase();
   }
 
   function specialChar(e: React.ChangeEvent<HTMLInputElement>) {
-    setAddress((e.target.value = `${e.target.value}`.replace(/[^\w\s]/gi, '')));
+    setAddress(e.target.value = (`${e.target.value}`).replace(/[^\w\s]/gi, ''));
   }
 
   function isNumber() {
@@ -61,7 +61,7 @@ function App() {
     setAddressType(e.target.value);
   }
 
-  function handleCv(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleCv(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setCv(e.target.value);
   }
 
@@ -69,14 +69,30 @@ function App() {
     setRole(e.target.value);
   }
 
-  function handleDescriptionChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setDescription(e.target.value);
-  }
-
   function handleInfo(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     event.preventDefault();
     setInfo(true);
   }
+
+  function handleDescriptionChange(e
+  : React.ChangeEvent<HTMLTextAreaElement>) {
+    setDescription(e.target.value);
+  }
+
+  const clear = () => {
+    setName('');
+    setEmail('');
+    setCpf('');
+
+    setAddress('');
+    setCity('');
+    setState('Acre');
+    setAddressType('Casa');
+
+    setCv('');
+    setRole('');
+    setDescription('');
+  };
 
   return (
     <form>
@@ -84,12 +100,12 @@ function App() {
         <label>
           Nome
           <input
-            type="text"
             name="fullName"
             maxLength={ 40 }
-            onInput={ upperCase }
             onChange={ handleName }
+            type="text"
             value={ name }
+            onInput={ upperCase }
           />
         </label>
         <label>
@@ -117,21 +133,21 @@ function App() {
         <label>
           Endereço
           <input
-            type="text"
             name="address"
             maxLength={ 200 }
             onChange={ specialChar }
+            type="text"
             value={ address }
           />
         </label>
         <label>
           Cidade
           <input
-            type="text"
-            name="city"
             maxLength={ 28 }
             onBlur={ isNumber }
             onChange={ handleCity }
+            name="city"
+            type="text"
             value={ city }
           />
         </label>
@@ -142,40 +158,37 @@ function App() {
             onChange={ (event) => handleState(event) }
             value={ state }
           >
-            {states.map((estado) => (
-              <option key={ estado } value={ estado }>
-                {estado}
-              </option>
+            {states.map((s) => (
+              <option key={ s } value={ s }>{s}</option>
             ))}
           </select>
         </label>
-        {/* Olhei no gabarito */}
+        {/* Olhei no Gabarito */}
         <label>
           Casa
           <input
-            type="radio"
-            name="addressType"
             checked={ addressType === 'Casa' }
-            onClick={ ChangeAddress }
+            name="addressType"
+            type="radio"
             value="Casa"
+            onClick={ ChangeAddress }
           />
         </label>
         <label>
           Apartamento
           <input
-            type="radio"
-            name="addressType"
             checked={ addressType === 'Apartamento' }
-            onClick={ ChangeAddress }
+            name="addressType"
+            type="radio"
             value="Apartamento"
+            onClick={ ChangeAddress }
           />
         </label>
       </fieldset>
       <fieldset>
         <label>
           Resumo do currículo
-          <input
-            type="text"
+          <textarea
             name="cv"
             maxLength={ 1000 }
             onChange={ handleCv }
@@ -195,8 +208,7 @@ function App() {
         </label>
         <label>
           Descrição do cargo
-          <input
-            type="text"
+          <textarea
             name="description"
             maxLength={ 500 }
             onChange={ handleDescriptionChange }
@@ -204,9 +216,8 @@ function App() {
           />
         </label>
       </fieldset>
-      <button type="submit" onClick={ handleInfo }>
-        Enviar
-      </button>
+      <button type="submit" onClick={ handleInfo }>Enviar</button>
+      <button onClick={ clear }>Limpar</button>
       {info && (
         <div>
           <p>{name}</p>
